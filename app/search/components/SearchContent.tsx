@@ -1,7 +1,7 @@
 "use client";
 import { ISongs } from "@/types";
-import MediaItem from "../../../components/MediaItem";
-import LikedButton from "../../../components/LikedButton";
+import MediaItem from "@/components/MediaItem";
+import LikedButton from "@/components/LikedButton";
 import useOnPlay from "@/hooks/useOnPlay";
 
 interface Props {

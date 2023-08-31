@@ -5,7 +5,7 @@ import qs from "query-string";
 
 import useDebounce from "@/hooks/useDebounce";
 import { useRouter } from "next/navigation";
-import Input from "./Input";
+import Input from "@/components/Input";
 
 interface Props {}
 
