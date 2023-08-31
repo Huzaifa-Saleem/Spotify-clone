@@ -8,11 +8,14 @@ import { useUser } from "@/hooks/useUser";
 import useUploadModal from "@/hooks/useUploadModal";
 import { ISongs } from "@/types";
 import MediaItem from "./MediaItem";
+import useOnPlay from "@/hooks/useOnPlay";
 
 const Library = ({ songs }: { songs: ISongs[] }) => {
   const authModal = useAuthModal();
   const uploadModal = useUploadModal();
   const { user } = useUser();
+
+  const onPlay = useOnPlay(songs);
 
   const onClick = () => {
     if (!user) {
@@ -63,7 +66,11 @@ const Library = ({ songs }: { songs: ISongs[] }) => {
       </div>
       <div className="flex flex-col gap-y-2 mt-4 px-3">
         {songs.map((item) => (
-          <MediaItem key={item.id} data={item} onClick={() => {}} />
+          <MediaItem
+            key={item.id}
+            data={item}
+            onClick={(id: string) => onPlay(id)}
+          />
         ))}
       </div>
     </div>

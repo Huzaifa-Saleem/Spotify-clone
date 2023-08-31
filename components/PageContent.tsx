@@ -2,12 +2,15 @@
 
 import { ISongs } from "@/types";
 import SongItem from "./SongItem";
+import useOnPlay from "@/hooks/useOnPlay";
 
 interface Props {
   songs: ISongs[];
 }
 
 const PageContent: React.FC<Props> = ({ songs }) => {
+  const onPlay = useOnPlay(songs);
+
   if (songs.length === 0)
     return (
       <div className="flex w-full h-full">
@@ -30,7 +33,11 @@ const PageContent: React.FC<Props> = ({ songs }) => {
   "
     >
       {songs.map((item) => (
-        <SongItem key={item.id} onClick={() => {}} data={item} />
+        <SongItem
+          key={item.id}
+          onClick={(id: string) => onPlay(id)}
+          data={item}
+        />
       ))}
     </div>
   );
