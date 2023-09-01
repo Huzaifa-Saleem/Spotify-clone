@@ -47,7 +47,7 @@ export interface IPrice {
   type?: Stripe.Price.Type;
   interval?: Stripe.Price.Recurring.Interval;
   interval_count?: number;
-  trail_period_days?: number | null;
+  trial_period_days?: number | null;
   metadata?: Stripe.Metadata;
   product?: IProduct;
 }
